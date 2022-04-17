@@ -22,6 +22,9 @@ body {
      color: white;
      font-family: poppins;
 }
+#site-box {
+  display: grid;
+}
 h1 {
     font-size: xx-large;
     font-weight: 900;
@@ -47,6 +50,32 @@ header {
     padding: 1em;
     z-index: 10;
   }
+
+/* Style the search box inside the navigation bar */
+header input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+/* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
+@media screen and (max-width: 600px) {
+  header a, header input[type=text] {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .header input[type=text] {
+    border: 1px solid #ccc;
+  }
+}
+
   header * {
     display: inline;
 }
@@ -101,8 +130,50 @@ a:hover {
     color: #645c5c;
     font-style: italic;
   }
+/*Navbar Section*/
+#nav-bar ul {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-around;
+  box-shadow: 0 0 25px 0 dodgerblue;
+  width: 100%;
+  height: 2rem;
+  margin-top: 2rem;
+  background-color: dodgerblue;
+  color: white;
+  font-family: 'Exo 2', sans-serif;
+  padding: 1em;
+  z-index: 9;
+}
+/*dropdown nav buttons*/
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
 
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 99;
+}
 
+.dropdown:hover .dropdown-content {
+  display: block;
+}
  /*HERO Section*/
  .hero {
   position: relative;
@@ -116,413 +187,6 @@ a:hover {
   padding-bottom: 4rem;
 }
 
-
-  /*Main Body Grid-Not Incl. Header/Footer*/
-.gridContainer {
-    position: relative;
-    background-color: rgb(251, 240, 238);
-    width: 100vw;
-    height: auto;
-    display: grid;
-    font-family: poppins;
-    /*Animate Grid columns to expand right edge to accomodate side navbar on large screens*/
-    grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 3fr 3fr 1fr 3fr 2fr;
-    grid-template-areas: ;
-    gap: 3px;
-    transition: all 1s;
-}
-.box1 {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10%;
-    justify-content: flex-start;
-    background-color: rgb(171, 171, 255);
-    align-items: center;
-    position: relative;
-    top: 0px;
-    left: 00px;
-    animation-name: boxposition;
-    animation-duration: 600ms;
-    justify-self: auto;
-    align-self: auto;
-    justify-self: stretch;
-    background-image: url(/assets/svg\ shit.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: left; 
-}
-    .box1 p {
-      animation-name: mainbox1left2rightslide;
-      animation-duration: 800ms;
-      animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    @keyframes mainbox1left2rightslide {
-      from {
-        transform: translateX(0%);
-      }
-      to {
-        transform: translateX(100%);
-      }
-    }
-  }
-
-  @keyframes boxposition {
-
-  }
-  .box2 {
-    grid-column: 2;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10%;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    background-image: url(/assets/svg\ shit.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: ;
-    background-position: center; 
-
-  }
-  .box3 {
-    grid-column: 3;
-    grid-row: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10%;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    background-image: url(/assets/blue-wave-footer-bg-reverse.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right bottom; 
-    
-  }
-  .box3 p {
-    animation-name: mainbox1left2rightslide;
-    animation-duration: 800ms;
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  @keyframes mainboxright2leftslide {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(100%);
-    }
-  }
-}
-  .box4 {
-    grid-column: 1;
-    grid-row: 2;
-    display: flex;
-    padding: 10%;
-    justify-content: flex-end;
-    align-items: center;
-    background-color: rgb(34, 34, 179);
-  
-  }
-  .box5 {
-    grid-column: 2;
-    grid-row: 2;
-    display: flex;
-    padding: 10%;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    padding: 2rem;
-    background-image: url(/assets/logoipsum-logo-36.svg);
-  }
-  .box6 {
-    grid-column: 3;
-    grid-row: 2;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    background-image: url(/assets/svg\ shit.svg);
-    background-repeat: no-repeat;
-    background-size: cover;  
-  }
-  .box7 {
-    grid-column: 1;
-    grid-row: 3;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    z-index: 6;
-
-  }
-  .box8 {
-    grid-column: 2;
-    grid-row: 3;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    z-index: 7;
-
-  }
-  .box9 {
-    grid-column: 3;
-    grid-row: 3;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    grid-column-start: 1;
-    grid-column-end: 4;
-    background-image: url(/assets/wide\ bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 8;
-  }
-  .box10 {
-    z-index: 3;
-    grid-column: 1;
-    grid-row: 4;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    grid-column-start: 1;
-    grid-column-end: 3;
-    background-image: url(/assets/pexels-pixabay-208560.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .box11 {
-    z-index: 2;
-    grid-column: 2;
-    grid-row: 4;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    background-image: url(/assets/pexels-pixabay-208560.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  .box12 {
-    grid-column: 3;
-    grid-row: 4;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    font-size: xx-large;
-    font-weight: 600;
-    font-family: 'Rubik Microbe', cursive;
-    padding: 2rem;
-    text-align: right;
-    
-  } 
-  .box12 p {
-    animation-name: textan;
-    animation-duration: 800ms;
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  @keyframes textan {
-    from {
-      transform: translateX(0%);
-    }
-  
-    to {
-      transform: translateX(100%);
-    }
-  }
-  }
-  .box13 {
-    grid-column: 1;
-    visibility: hidden;
-    grid-row: 5;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: dodgerblue;
-  } 
-  .box14 {
-    grid-column: 2;
-    grid-row: 5;
-    display: flex;
-    padding:5%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    background-image: url(/assets/wide\ bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 8%;
-    align-self:center;
-    justify-self:stretch;
-    width: 80%;
-    
-
-    }
-  .box15 {
-    grid-column: 3;
-    grid-row: 5;
-    display: flex;
-    padding: 10%;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(171, 171, 255);
-    background-image: url(/assets/wide\ bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-
- 
-/*flex row*/
-
-
-/*footer*/
-footer {
-    /*add svg to animate footer bg*/
-    background-image: url(/assets/blue-wave-footer-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-origin: content-box;
-}
-.footer-grid-container {
-    display: grid;
-    grid-template-columns: 9fr 3fr 3fr;
-    grid-template-rows: [row1-start] 20% [row1-end row2-start] 2fr [row2-end row3-start] 100px;
-    gap: 4px;
-   
-    padding-bottom: 300px;
-    opacity: .2;
-    grid-area: ;
-    grid-template-areas: ;
-}
-.footerbox1 {
-    grid-row: 1;
-    grid-column: 1;
-    min-height: 400px;
-    min-width: 33%;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-}
-.footerbox2 {
-    grid-row: 1;
-    grid-column: 2;
-    min-height: 100px;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-    
-}
-.footerbox3
-{
-    grid-row: 1;
-    grid-column: 3;
-    grid-area: auto;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    flex-direction: column;
-    padding: 10px;
-    
-}
-.footerbox4 {
-    grid-row: 2;
-    grid-column: 1;
-    min-height: 250px;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-}
-.footerbox5 {
-    grid-row: 2;
-    grid-column: 2;
-    min-height: 250px;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-}
-.footerbox6 {
-    grid-row: 2;
-    grid-column: 3;
-    min-height: 250px;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-}
-.footerbox7 {
-    grid-row: 3;
-    grid-column: 1;
-    background-color: rgb(0, 175, 175);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-}
-.footerbox8 {
-    grid-row: 3;
-    grid-column: 2;
-  
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-}
-.footerbox9 {
-    grid-row: 3;
-    grid-column: 3;
-    background-color: rgb(0, 175, 175);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 10px;
-}
-/*create three boxes-one for each row to use as a flex container*/
-.row1 {
-  display: flex;
-}
-.row2 {
-  display: flex;
-}
-.row3 {
-  display: flex;
-}
 
 /*GRID CSS Properties
 Parent
